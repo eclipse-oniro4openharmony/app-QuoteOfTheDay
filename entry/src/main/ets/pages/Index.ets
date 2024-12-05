@@ -9,10 +9,9 @@ struct Index {
   @State author: string = '';
   build() {
     Column() {
-      Child({myQuote : $quote})
       Scroll(new Scroller()) {
         Text(this.quote)
-          .fontSize(25)
+          .fontSize($r('app.integer.font_size'))
           .fontWeight(FontWeight.Bold)
           .fontStyle(FontStyle.Italic)
           .fontColor(Color.White)
@@ -23,12 +22,12 @@ struct Index {
 
       Text(this.author)
         .flexGrow(1)
-        .fontSize(20)
+        .fontSize($r('app.integer.font_size'))
         .fontWeight(FontWeight.Medium)
       Button($r('app.string.new_quote'))
         .onClick(() => {
-          this.quote = quoteClass.getQuote();
-          this.author = quoteClass.getAuthor();
+          this.quote = '" ' + quoteClass.getQuote() + ' "';
+          this.author = "- " + quoteClass.getAuthor();
           quoteClass.getNewQuote();
         }
         ).margin(20)
@@ -38,13 +37,6 @@ struct Index {
     .backgroundImage($r('app.media.quoteBack'))
     .backgroundImageSize(ImageSize.Contain)
     .backgroundImagePosition(Alignment.Center)
-    .backgroundColor('#819FD4')
-  }
-}
-
-@Component
-struct Child {
-  @Link myQuote: string;
-  build() {
+    .backgroundColor($r('app.color.background_colour'))
   }
 }
