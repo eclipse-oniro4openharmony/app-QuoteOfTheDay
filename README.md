@@ -3,7 +3,7 @@
 
 Quote of the day is a simple example of getting data from a web source.
 
-
+![QOTD](https://github.com/user-attachments/assets/5bf435f0-b9d8-4122-a5b3-1236fe5fa834)
 
 ### Table of contents
  [Functionaility](#functionaility)  
