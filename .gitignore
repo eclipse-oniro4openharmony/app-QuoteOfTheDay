@@ -9,3 +9,8 @@
 /.clang-format
 /.clang-tidy
 **/.test
+hvigor/
+hvigorfile.ts
+hvigorw
+hvigorw.bat
+oh-package-lock.json5
