@@ -4,13 +4,13 @@
       {
         "name": "default",
         "material": {
-          "certpath": "C:/Users/c84381641/.ohos/config/openharmony/default_app-QuoteOfTheDay_i3pan42qWnCM8YGDHXVp8EZEq_TBdJ0V-67InmVX_Tk=.cer",
-          "storePassword": "0000001BB7AC85FAD46D75BC61B48728057D8436A7B8DA699AA1B718BB1B352FB723891D949F7C9E4AE266",
+          "certpath": "./.secret/oniro-ci.cer",
+          "storePassword": "0000001BD5A16C997F0EF958596A946A060A50ED61DF4D945A74AB3C462CBCFBE5BA90427A3DEAC0D27D3E",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001BA32F65357B1AD757F0510742952309F5EC377D0E16E9F218DAB02E3100C44B1B2DA13393B98F5C",
-          "profile": "C:/Users/c84381641/.ohos/config/openharmony/default_app-QuoteOfTheDay_i3pan42qWnCM8YGDHXVp8EZEq_TBdJ0V-67InmVX_Tk=.p7b",
+          "keyPassword": "0000001BACA49D623B16BE8A9C4C216A9ED64244F7255BC9AEF8C862264DDA900496AD36202857353771E8",
+          "profile": "./.secret/oniro-ci.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "C:/Users/c84381641/.ohos/config/openharmony/default_app-QuoteOfTheDay_i3pan42qWnCM8YGDHXVp8EZEq_TBdJ0V-67InmVX_Tk=.p12"
+          "storeFile": "./.secret/oniro-ci.p12"
         }
       }
     ],
