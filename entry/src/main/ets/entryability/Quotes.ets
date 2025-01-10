@@ -1,11 +1,14 @@
 import http from '@ohos.net.http';
 
-type quoteType = {
-  data: {
-    author: string,
-    quote: string
-  }
+interface Data {
+  author: string
+  quote: string
 }
+
+interface quoteType {
+  data: Data
+}
+
 const API_URL: string = 'https://stoic.tekloon.net/stoic-quote';
 
 export class Quotes {

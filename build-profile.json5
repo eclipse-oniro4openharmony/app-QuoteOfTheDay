@@ -4,13 +4,13 @@
       {
         "name": "default",
         "material": {
-          "certpath": "C:/Users/a60067975/.ohos/config/openharmony/default_QuoteOfTheDay_Y_XKuVgEASeOs8qRvGU2FKQM7dDQPry_dOmR2vql5XA=.cer",
-          "storePassword": "0000001B275DA6356A42F6F79CC377744F09625D587AD5111F0485EAB6853EDC500494AB20FA3248999C58",
+          "certpath": "C:/Users/c84381641/.ohos/config/openharmony/default_app-QuoteOfTheDay_i3pan42qWnCM8YGDHXVp8EZEq_TBdJ0V-67InmVX_Tk=.cer",
+          "storePassword": "0000001BB7AC85FAD46D75BC61B48728057D8436A7B8DA699AA1B718BB1B352FB723891D949F7C9E4AE266",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001BCD3324DFD9234A1380CD1824F96D881729C9892D7EFC9FEB09FD5AEF83FDFBD44400C74D506A0E",
-          "profile": "C:/Users/a60067975/.ohos/config/openharmony/default_QuoteOfTheDay_Y_XKuVgEASeOs8qRvGU2FKQM7dDQPry_dOmR2vql5XA=.p7b",
+          "keyPassword": "0000001BA32F65357B1AD757F0510742952309F5EC377D0E16E9F218DAB02E3100C44B1B2DA13393B98F5C",
+          "profile": "C:/Users/c84381641/.ohos/config/openharmony/default_app-QuoteOfTheDay_i3pan42qWnCM8YGDHXVp8EZEq_TBdJ0V-67InmVX_Tk=.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "C:/Users/a60067975/.ohos/config/openharmony/default_QuoteOfTheDay_Y_XKuVgEASeOs8qRvGU2FKQM7dDQPry_dOmR2vql5XA=.p12"
+          "storeFile": "C:/Users/c84381641/.ohos/config/openharmony/default_app-QuoteOfTheDay_i3pan42qWnCM8YGDHXVp8EZEq_TBdJ0V-67InmVX_Tk=.p12"
         }
       }
     ],
@@ -18,8 +18,8 @@
       {
         "name": "default",
         "signingConfig": "default",
-        "compileSdkVersion": 10,
-        "compatibleSdkVersion": 9,
+        "compileSdkVersion": 11,
+        "compatibleSdkVersion": 11,
         "runtimeOS": "OpenHarmony",
       }
     ],
