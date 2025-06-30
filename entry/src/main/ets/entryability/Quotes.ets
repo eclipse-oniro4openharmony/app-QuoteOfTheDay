@@ -1,4 +1,4 @@
-import http from '@ohos.net.http';
+import { http } from '@kit.NetworkKit';
 
 interface Data {
   author: string
