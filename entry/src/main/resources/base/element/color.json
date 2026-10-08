@@ -1,8 +1,11 @@
 {
   "color": [
-    {
-      "name": "background_colour",
-      "value": "#819FD4"
-    }
+    { "name": "background_colour", "value": "#F8F3FF" },
+    { "name": "ink", "value": "#0F0026" },
+    { "name": "brand_purple", "value": "#6024B5" },
+    { "name": "accent_cyan", "value": "#00C9E5" },
+    { "name": "accent_pink", "value": "#FF27B7" },
+    { "name": "card_text", "value": "#FFFFFF" },
+    { "name": "card_muted", "value": "#DED2F1" }
   ]
 }

@@ -1,46 +1,37 @@
 import { http } from '@kit.NetworkKit';
 
-interface Data {
-  author: string
-  quote: string
+export interface QuoteData {
+  author: string;
+  quote: string;
 }
 
-interface quoteType {
-  data: Data
+interface QuoteResponse {
+  data: QuoteData;
 }
 
 const API_URL: string = 'https://stoic.tekloon.net/stoic-quote';
 
 export class Quotes {
-  private author: string = '';
-  private quote: string = '';
-  private httpRequest = http.createHttp();
+  async getNewQuote(): Promise<QuoteData | null> {
+    const request = http.createHttp();
 
-  constructor() {
-    this.getNewQuote();
-  }
-
-  getNewQuote() {
-    console.log("AAA getNewQuote")
-
-    this.httpRequest.request(API_URL, (error, values) => {
-      if (!error) {
-        let parsed: quoteType = JSON.parse(values.result as string);
-        this.author = parsed.data.author;
-        this.quote = parsed.data.quote;
-        console.log("AAA " + parsed.data.quote)
-        console.log("AAA " + parsed.data.author)
-      } else {
-        console.log('AAA Error: ' + JSON.stringify(error));
+    try {
+      const response = await request.request(API_URL);
+      if (response.responseCode !== http.ResponseCode.OK || typeof response.result !== 'string') {
+        throw new Error('Invalid quote response');
       }
-    })
-  }
 
-  getAuthor(): string {
-    return this.author;
-  }
+      const parsed: QuoteResponse = JSON.parse(response.result as string);
+      if (!parsed || !parsed.data || typeof parsed.data.quote !== 'string' ||
+        typeof parsed.data.author !== 'string' || !parsed.data.quote.trim()) {
+        throw new Error('Invalid quote data');
+      }
 
-  getQuote(): string {
-    return this.quote;
+      return parsed.data;
+    } catch (error) {
+      return null;
+    } finally {
+      request.destroy();
+    }
   }
 }

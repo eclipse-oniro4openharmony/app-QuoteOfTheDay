@@ -14,7 +14,23 @@
     },
     {
       "name": "new_quote",
-      "value": "Get new quote"
+      "value": "New quote"
+    },
+    {
+      "name": "loading_quote",
+      "value": "Loading quote..."
+    },
+    {
+      "name": "quote_load_error",
+      "value": "Could not load a quote. Tap to retry."
+    },
+    {
+      "name": "loading_button",
+      "value": "Finding a quote..."
+    },
+    {
+      "name": "retry_quote",
+      "value": "Try again"
     }
   ]
 }
