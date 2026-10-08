@@ -1,67 +1,62 @@
 # Quote of the day
-## Introduction
 
-Quote of the day is a simple example of getting data from a web source.
+An OpenHarmony app for phones and tablets that fetches and displays a Stoic quote from a public web API.
 
-![QOTD](images/screenshot.jpg)
+## What this example demonstrates
 
-### Table of contents
- [Functionaility](#functionaility)  
- [General Process](#general-process)
+| Capability | API or platform service | Where to look |
+| --- | --- | --- |
+| Fetch and validate a quote over HTTPS | `@kit.NetworkKit` HTTP request | [Quotes.ets](entry/src/main/ets/entryability/Quotes.ets) |
+| Show loading, retry, quote, and author states | ArkUI `@State` and components | [Index.ets](entry/src/main/ets/pages/Index.ets) |
+| Allow network access | `ohos.permission.INTERNET` | [module.json5](entry/src/main/module.json5) |
 
-## Functionaility
-    •  App that shows an inspirational quote at the click of a button.
-    •  Show how to access data from the web.
-    •  Quotes are sourced from https://github.com/tlcheah2/stoic-quote-lambda-public-api
-	
-## General Process
-This part introduces the general process of the application development  
-1. [Logic and functionailities](#logic-and-functionailities)
-2. [Checking and testing](#checking-and-testing)
-    
-### Logic and functionailities
-- The basic logic of the app is as follows:
-    •  Upon launch, connect to the remote API and fetch a fresh quote.
-	•  When the user clicks on the button, show him the quote and prepare the next one.
+## Preview
 
->**Connecting to a web source**
+![Quote displayed in the app](images/screenshot.jpg)
 
-- Within your business logic:
-	Initialize an http request to your desired API URL.
-	You should know what format of data to expect and prepare accordingly by creating a new 'type' that corresponds to the expected format.
-	
-```typescript
-type quoteType = {
-  data: {
-    author: string,
-    quote: string
-  }
-}	
-	
-```	
-	
-Afterwards call the request and parse your response to your type to extract desired fields.
-Keep in mind that the call is asynchronous.
-	
+## Requirements
 
-```typescript
-import http from '@ohos.net.http';
-(...)
-getNewQuote() {
-    http.createHttp().request(API_URL, (error, values) => {
-      if (!error) {
-        let parsed: quoteType = JSON.parse(values.result as string);
-        this.author = parsed.data.author;
-        this.quote = parsed.data.quote;
-      } else {
-        console.log('Error: ' + JSON.stringify(error));
-      }
-    })
-  }
+- OpenHarmony 6.1 (API 23) SDK, Java, and the `oniro-app` CLI. The app targets API 23 and declares API 20 as its minimum; the SDK versions are set in [build-profile.example.json5](build-profile.example.json5).
+- An OpenHarmony phone, tablet, or emulator with network access to the [Stoicism Quote API](https://github.com/tlcheah2/stoic-quote-lambda-public-api). The app declares `ohos.permission.INTERNET`.
+- Development signing material for installation. `oniro-app sign` creates it locally in the ignored `signatures/` directory.
+
+## Build and run
+
+From the repository root in PowerShell, copy the build profile once, then sign and build:
+
+```powershell
+Copy-Item build-profile.example.json5 build-profile.json5
+oniro-app sign
+oniro-app build
+oniro-app devices
+oniro-app app install --device <serial>
+oniro-app app launch --device <serial>
 ```
 
-All that is left is displaying the data to the user.
+Replace `<serial>` with the OpenHarmony device or emulator serial reported by `oniro-app devices`. `oniro-app sign` updates only the ignored local build profile and signing files. Run it once per checkout; subsequent changes only need `oniro-app build` before installation. CI copies the tracked example and signs its own build.
 
-### Checking and Testing
-- Since some actions in the app are asynchronous, using console logs was the preferred verification method.
-  All functionalities can be tested on the `Previewer` or on an `Emulator`.
+## Use
+
+Launch the app to fetch a quote. Tap **New quote** to request another one. While a request is pending, the button is disabled. If a request fails, tap **Try again** to retry.
+
+## Explore the implementation
+
+[EntryAbility.ets](entry/src/main/ets/entryability/EntryAbility.ets) loads the page. [Index.ets](entry/src/main/ets/pages/Index.ets) starts the first fetch and updates the UI. [Quotes.ets](entry/src/main/ets/entryability/Quotes.ets) creates an HTTP request, checks the response, parses the quote and author, and destroys the request when finished.
+
+## Verify
+
+On a connected emulator or device, confirm that a quote and author appear after launch and that **New quote** fetches another quote. Try repeated taps, disconnect the network, and confirm that **Try again** appears after a failed request.
+
+## Limitations
+
+Quotes depend on the external API and network availability. The app does not cache quotes for offline use or select one quote per calendar day.
+
+## Contributing
+
+These apps are focused examples of specific platform capabilities. Contributions that keep an example correct, buildable, and clear are welcome, including bug fixes, documentation and setup corrections, and improvements to its existing behavior. Please keep pull requests within the app's stated purpose and describe how you verified the change.
+
+**Found a problem but can't fix it?** Open an issue in this repository; a pull request is not required. For a bug or broken build, include the steps to reproduce it, what you expected, what happened, and your device, OS, and SDK/API version. Logs or screenshots are helpful when available. You can also open an issue for inaccurate or unclear documentation.
+
+## License
+
+This project is licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE).
