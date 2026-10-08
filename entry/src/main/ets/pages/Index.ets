@@ -46,53 +46,59 @@ struct Index {
           .width('100%')
           .margin({ bottom: 24 })
 
-        Scroll() {
-          Column() {
-            Text('“')
-              .fontSize(72)
-              .fontWeight(FontWeight.Bold)
-              .fontColor($r('app.color.accent_pink'))
-              .height(72)
-              .width('100%')
-              .margin({ bottom: 12 })
-
-            if (this.quote) {
-              Text(this.quote)
-                .fontSize(21)
-                .fontWeight(FontWeight.Medium)
-                .lineHeight(31)
-                .fontColor($r('app.color.card_text'))
+        Column() {
+          Scroll() {
+            Column() {
+              Text('“')
+                .fontSize(72)
+                .fontWeight(FontWeight.Bold)
+                .fontColor($r('app.color.accent_pink'))
+                .height(72)
                 .width('100%')
-            } else if (this.isLoading) {
-              Text($r('app.string.loading_quote'))
-                .fontSize(21)
-                .fontColor($r('app.color.card_text'))
-                .width('100%')
-            }
+                .margin({ bottom: 12 })
 
-            if (this.author) {
-              Row({ space: 12 }) {
-                Text('')
-                  .width(28)
-                  .height(2)
-                  .backgroundColor($r('app.color.accent_cyan'))
-
-                Text(this.author)
-                  .fontSize(16)
+              if (this.quote) {
+                Text(this.quote)
+                  .fontSize(21)
                   .fontWeight(FontWeight.Medium)
-                  .fontColor($r('app.color.card_muted'))
+                  .lineHeight(31)
+                  .fontColor($r('app.color.card_text'))
+                  .width('100%')
+              } else if (this.isLoading) {
+                Text($r('app.string.loading_quote'))
+                  .fontSize(21)
+                  .fontColor($r('app.color.card_text'))
+                  .width('100%')
               }
-              .width('100%')
-              .margin({ top: 28 })
+
+              if (this.author) {
+                Row({ space: 12 }) {
+                  Text('')
+                    .width(28)
+                    .height(2)
+                    .backgroundColor($r('app.color.accent_cyan'))
+
+                  Text(this.author)
+                    .fontSize(16)
+                    .fontWeight(FontWeight.Medium)
+                    .fontColor($r('app.color.card_muted'))
+                }
+                .width('100%')
+                .margin({ top: 28 })
+              }
             }
+            .width('100%')
           }
           .width('100%')
+          .align(Alignment.TopStart)
+          .constraintSize({ maxHeight: '100%' })
+          .padding(28)
+          .borderRadius(28)
+          .backgroundColor($r('app.color.ink'))
         }
         .width('100%')
         .layoutWeight(1)
-        .padding(28)
-        .borderRadius(28)
-        .backgroundColor($r('app.color.ink'))
+        .justifyContent(FlexAlign.Center)
 
         if (this.hasError) {
           Text($r('app.string.quote_load_error'))
