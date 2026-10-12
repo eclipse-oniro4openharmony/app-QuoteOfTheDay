@@ -12,7 +12,7 @@ An OpenHarmony app for phones and tablets that fetches and displays a Stoic quot
 
 ## Preview
 
-![Quote displayed in the app](images/screenshot.jpg)
+![Quote displayed in the app](images/screenshot-2026-10-08.jpg)
 
 ## Requirements
 
