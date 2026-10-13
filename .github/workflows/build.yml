@@ -40,10 +40,3 @@ jobs:
         with:
           name: HAP packages
           path: entry/build/default/outputs/default
-
-      - name: Upload built HAP packages to Gitea
-        if: ${{ github.server_url != 'https://github.com' }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: HAP packages
-          path: entry/build/default/outputs/default
